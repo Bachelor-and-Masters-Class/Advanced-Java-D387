@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
   announcePresentation$!: Observable<string>;
 
   // NEW: Welcome messages from backend
-  welcomeMessageEn: string = '';
-  welcomeMessageFr: string = '';
+  welcomeMessageEn$!: Observable<string>;
+  welcomeMessageFr$!: Observable<string>;
 
   ngOnInit() {
     this.roomsearch = new FormGroup({
@@ -49,17 +49,8 @@ export class AppComponent implements OnInit {
   }
 
   loadWelcomeMessages() {
-    this.httpClient.get<{ welcomeMessage: string }>(this.baseURL + '/welcome?lang=en')
-      .subscribe(data => {
-        console.log("EN:", data); // This will show exactly what the API returns
-        this.welcomeMessageEn = data.welcomeMessage; // Extract just the string
-      });
-
-    this.httpClient.get<{ welcomeMessage: string }>(this.baseURL + '/welcome?lang=fr')
-      .subscribe(data => {
-        console.log("FR:", data); // This will show exactly what the API returns
-        this.welcomeMessageFr = data.welcomeMessage; // Extract just the string
-      });
+    this.welcomeMessageEn$ = this.httpClient.get(this.baseURL + '/welcome?lang=en', { responseType: 'text' });
+    this.welcomeMessageFr$ = this.httpClient.get(this.baseURL + '/welcome?lang=fr', { responseType: 'text' });
   }
 
   onSubmit({ value, valid }: { value: Roomsearch, valid: boolean }) {
