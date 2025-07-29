@@ -50,10 +50,16 @@ export class AppComponent implements OnInit {
 
   loadWelcomeMessages() {
     this.httpClient.get<{ welcomeMessage: string }>(this.baseURL + '/welcome?lang=en')
-      .subscribe(data => this.welcomeMessageEn = data.welcomeMessage);
+      .subscribe(data => {
+        console.log("EN:", data); // This will show exactly what the API returns
+        this.welcomeMessageEn = data.welcomeMessage; // Extract just the string
+      });
 
     this.httpClient.get<{ welcomeMessage: string }>(this.baseURL + '/welcome?lang=fr')
-      .subscribe(data => this.welcomeMessageFr = data.welcomeMessage);
+      .subscribe(data => {
+        console.log("FR:", data); // This will show exactly what the API returns
+        this.welcomeMessageFr = data.welcomeMessage; // Extract just the string
+      });
   }
 
   onSubmit({ value, valid }: { value: Roomsearch, valid: boolean }) {
