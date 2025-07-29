@@ -14,9 +14,9 @@ import java.util.Locale;
 public class WelcomeController {
 
     @GetMapping("/welcome")
-    public ResponseEntity<WelcomeMessage> displayWelcome(@RequestParam("lang") String lang) {
+    public ResponseEntity<String> displayWelcome(@RequestParam("lang") String lang) {
         Locale locale = Locale.forLanguageTag(lang);
         WelcomeMessage welcomeMessage = new WelcomeMessage(locale);
-        return new ResponseEntity<>(welcomeMessage, HttpStatus.OK);
+        return new ResponseEntity<>(welcomeMessage.getWelcomeMessage(), HttpStatus.OK);
     }
 }
