@@ -18,13 +18,17 @@
   </div>
 </header>
 <main id="wrapper">
-  <article class="content">
-    <div style="text-align: center; margin-bottom: 30px;">
-      <h3>{{ welcomeMessageFr }}</h3>
-      <h3>{{ welcomeMessageEn }}</h3>
+  <article class="scene" id="wlecome">
+    <article class="content">
+    <div>
+      <h3>{{ welcomeMessageFr$ | async }}</h3>
+      <h3>{{ welcomeMessageEn$ | async }}</h3>
+    </div><br><br>
+    </article>
       <div class="scene" id="presentation">
         <h1>{{ announcePresentation$ | async }}</h1>
-      </div>
+      </div><br><br>
+    <div>
       <div class="row">
         <div class="col-12">
           <div class="gallery">
