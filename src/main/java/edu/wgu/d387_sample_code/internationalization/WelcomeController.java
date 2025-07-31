@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Locale;
 
-@CrossOrigin(origins = "http://localhost:8080") // Needed for front end
+@CrossOrigin(origins = "http://localhost:4200") // Needed for front end
 @RestController
 public class WelcomeController {
 
