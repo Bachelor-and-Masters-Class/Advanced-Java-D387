@@ -1,6 +1,6 @@
 **Overview**
 
-This repository contains my completed submission for the WGU course **D387 – Advanced Java**.
+This repository contains my completed submission for the WGU course **D387: Advanced Java**.
 
 The project is a full-stack hotel reservation system built as a **Spring Boot REST API** with an **Angular** front end. It exposes endpoints for browsing reservable rooms and creating reservations, backed by JPA persistence against an H2 database and structured using a layered enterprise architecture.
 
@@ -103,10 +103,10 @@ npm start
 
 **Repository Contents**
 
--`src/main/java/` – Spring Boot application: entities, repositories, services, converters, REST resources, and configuration
+-`src/main/java/`: Spring Boot application: entities, repositories, services, converters, REST resources, and configuration
 
--`src/main/UI/` – Angular front-end application
+-`src/main/UI/`: Angular front-end application
 
--`src/test/` – Application tests
+-`src/test/`: Application tests
 
--`pom.xml` – Maven build configuration
+-`pom.xml`: Maven build configuration
